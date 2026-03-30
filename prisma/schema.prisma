@@ -16,6 +16,7 @@ model User {
   id    Int    @id @default(autoincrement())
   email String @unique
   name  String
+  password String @default("$2a$10$w09uYv1X.3gO6hMv/Q.sY.5Pz9Z51.N.9n1.gV.F0/C4v1N3zWw4C") // Hash local de "123456"
 
   // Relación uno-a-muchos con FavoriteCharacter
   favorites FavoriteCharacter[]

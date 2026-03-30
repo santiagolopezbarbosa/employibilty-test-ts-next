@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import { Providers } from './Providers'
 
 export const metadata = {
   title: 'Next.js',
@@ -20,7 +21,11 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <Providers>
+          {children}
+        </Providers>
+      </body>
     </html>
   )
 }
