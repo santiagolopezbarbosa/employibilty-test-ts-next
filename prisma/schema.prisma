@@ -1,0 +1,42 @@
+// Esquema de Base de Datos - Sistema de Favoritos Rick & Morty
+// Proveedor: SQLite (archivo local)
+// Relación: Un User tiene muchos FavoriteCharacter
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+/// Modelo de Usuario del sistema
+model User {
+  id    Int    @id @default(autoincrement())
+  email String @unique
+  name  String
+
+  // Relación uno-a-muchos con FavoriteCharacter
+  favorites FavoriteCharacter[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+/// Modelo de Personaje Favorito - vincula un personaje de la API con un User
+model FavoriteCharacter {
+  id              Int    @id @default(autoincrement())
+  apiCharacterId  Int    // ID del personaje en la API de Rick & Morty
+  characterName   String // Nombre del personaje
+  characterImage  String // URL de la imagen del personaje
+
+  // Relación con User
+  userId Int
+  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+
+  // Índice único: un usuario no puede tener el mismo personaje como favorito dos veces
+  @@unique([userId, apiCharacterId])
+}

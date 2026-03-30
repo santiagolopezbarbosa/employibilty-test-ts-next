@@ -1,0 +1,12 @@
+PrismaClientConstructorValidationError: Unknown property datasourceUrl provided to PrismaClient constructor.
+Read more at https://pris.ly/d/client-constructor
+    at jl (C:\Users\santi\employibilty-test-ts-next\node_modules\@prisma\client\runtime\client.js:66:3832)
+    at new t (C:\Users\santi\employibilty-test-ts-next\node_modules\@prisma\client\runtime\client.js:70:1808)
+    at Object.<anonymous> (C:\Users\santi\employibilty-test-ts-next\seed_runner.js:5:16)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
